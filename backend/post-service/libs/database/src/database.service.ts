@@ -35,17 +35,17 @@ export class MongoDatabaseService implements DatabaseService {
    */
   get(): Record<string, any> {
     return {
-        "data": {
-            "moredata": "some more data"
-        }
+      data: {
+        moredata: 'some more data',
+      },
     };
-  };
+  }
   /**
    * Write record.
    */
   set(): Record<string, any> {
     return {
-        "id": "id"
+      id: 'id',
     };
-  };
+  }
 }
