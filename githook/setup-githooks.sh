@@ -1,2 +1,2 @@
 #!/bin/sh
-cp pre-commit ../.git/hooks/pre-commit.sample
+cp pre-commit ../.git/hooks/pre-commit
