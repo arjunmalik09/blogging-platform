@@ -1,7 +1,7 @@
 # blogging-platform
 Blogging Platform
 
-Technical Document
+## Technical Document
 1. API Specification
     1. Create Post: /v1/post/create {
 		post: {},
@@ -41,3 +41,17 @@ Technical Document
     5. API Document with OpenAPI specifics
 5. Auth Service
     1. OAuth Token Based
+
+## Steps for running
+1. backend
+```
+cd backend/post-service
+npm ci
+npm run start
+```
+2. frontend
+```
+cd frontend/blogs
+npm ci
+npm run start
+```
