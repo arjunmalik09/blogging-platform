@@ -22,7 +22,13 @@ function PostsPage() {
     <div className="Posts-page">
       <div className='Posts-content'>
       {
-        loading === true ? "Loading posts..." : (error !== null ? "Error loading posts. Please reload page!" : `${JSON.stringify(posts)}` )
+        loading === true ?
+        "Loading posts...":
+        (
+          error !== null ?
+          "Error loading posts. Please reload page!":
+          posts.map(post => <Post post={post}/>)
+        )
       }
       </div>
     </div>
