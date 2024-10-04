@@ -10,6 +10,8 @@ const getPosts = (url: string = `${BASE_URL}/post/list`) => {
   return fetch(request);
 };
 
-export const queryRunner = {
+const queryRunner = {
   getPosts,
 };
+
+export default queryRunner;
