@@ -5,13 +5,25 @@ import queryRunner from '../../query';
 
 function PostsPage() {
   const [posts, setPosts] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    queryRunner.getPosts().then((posts: any) => setPosts(posts));
+    queryRunner.getPosts()
+    .then((posts: any) => {
+      setPosts(posts)
+    })
+    .catch((error) => {
+      setError(error);
+    }).finally(() => {
+      setLoading(false);
+    });
   }, []);
   return (
     <div className="Posts-page">
       <div className='Posts-content'>
-      {posts.map((post) => (<Post post=post/>))}
+      {
+        loading === true ? "Loading posts..." : (error !== null ? "Error loading posts. Please reload page!" : `${JSON.stringify(posts)}` )
+      }
       </div>
     </div>
   );
