@@ -29,23 +29,34 @@ export interface DatabaseRecord {
 }
 
 @Injectable()
-export class MongoDatabaseService implements DatabaseService {
+export class KeyValueDatabaseService implements DatabaseService {
+  database: Record<string, any>;
+  constructor() {
+    this.database = {};
+  }
   /**
    * Read record.
    */
-  get(): Record<string, any> {
-    return {
-      data: {
-        moredata: 'some more data',
-      },
-    };
+  get(key: string): any {
+    return this.database[key];
   }
   /**
    * Write record.
    */
-  set(): Record<string, any> {
-    return {
-      id: 'id',
-    };
+  set(key: string, value: any): any {
+    this.database[key] = value;
+    return value;
+  }
+  /**
+   * Read records.
+   */
+  getSome(): any {
+    const keys = Object.keys(this.database);
+    const records = keys.reduce((currentRecords, key, index) => {
+      if (index > 10) return currentRecords;
+      currentRecords.push(this.database[key]);
+      return currentRecords;
+    }, []);
+    return records;
   }
 }
