@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import displayLogo from './displayLogo.png';
+import React from 'react';
 import './index.css';
 import PostsPage from '../postsPage';
 
