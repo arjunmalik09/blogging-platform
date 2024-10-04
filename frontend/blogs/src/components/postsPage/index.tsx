@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './index.css';
 import Post from '../post';
-import queryRunner from '../../../query';
+import queryRunner from '../../query';
 
 function PostsPage() {
   const [posts, setPosts] = useState([]);
